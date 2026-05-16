@@ -1,0 +1,592 @@
+/* ===================================
+   VARIABLES & RESET
+   =================================== */
+:root {
+    --primary-color: #00d4ff;
+    --secondary-color: #0099ff;
+    --accent-color: #ff6b35;
+    --dark-bg: #0a0e27;
+    --darker-bg: #050812;
+    --card-bg: #141b3a;
+    --text-primary: #ffffff;
+    --text-secondary: #b4b4b4;
+    --border-color: #1e2749;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===================================
+   NAVIGATION HEADER
+   =================================== */
+.navbar {
+    background: rgba(5, 8, 18, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.school-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.logo-main {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 20px;
+    display: block;
+}
+
+.logo-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* ===================================
+   PAGE HERO
+   =================================== */
+.page-heading {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: radial-gradient(circle at center, var(--card-bg) 0%, var(--darker-bg) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.heading-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.school-name {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.heading-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* ===================================
+   LAYOUT & SECTIONS
+   =================================== */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.card-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 4rem auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* General Guidelines List */
+.general-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.general-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--darker-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    color: var(--text-secondary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.general-list li:hover {
+    transform: translateX(5px);
+    background: rgba(0, 212, 255, 0.05);
+    border-left-color: var(--secondary-color);
+}
+
+.general-list .icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* ===================================
+   EVENT SECTIONS
+   =================================== */
+.events-header {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.main-event-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    display: inline-block;
+}
+
+.main-event-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+    border-radius: 2px;
+}
+
+/* Event Grid Layout */
+.event-section {
+    padding: 4rem 0;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.event-grid.reverse {
+    direction: rtl;
+}
+
+.event-grid.reverse > * {
+    direction: ltr;
+}
+
+/* Event Info Styles */
+.event-name {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.details-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.details-box {
+    background: rgba(20, 27, 58, 0.5);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.details-box h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.details-box ul {
+    list-style-position: inside;
+    color: var(--text-secondary);
+}
+
+.details-box li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* Event Media */
+.event-media {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.event-media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.event-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+.event-media:hover img {
+    transform: scale(1.05);
+}
+
+.event-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+/* ===================================
+   GAMING HIGHLIGHTS CARDS **...**
+
+_This response is too long to display in full._*/
+/* ===================================
+   GAMING HIGHLIGHTS CARDS (DUAL LAYOUT)
+   =================================== */
+.gaming-highlights-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.gaming-highlights-card {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(20, 27, 58, 0.7);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.15);
+}
+
+.gaming-highlights-card.cod-card {
+    border-color: #ff3b30;
+    box-shadow: 0 0 25px rgba(255, 59, 48, 0.15);
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.card-title.orange-title {
+    color: var(--accent-color);
+}
+
+.card-title.red-title {
+    color: #ff3b30;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: var(--darker-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    transition: var(--transition);
+}
+
+.highlight-item.cod-item {
+    border-color: rgba(255, 59, 48, 0.3);
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+}
+
+.highlight-item.cod-item:hover {
+    border-color: #ff3b30;
+    box-shadow: 0 5px 15px rgba(255, 59, 48, 0.2);
+}
+
+.highlight-item.prize-first {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), var(--darker-bg));
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.highlight-item.prize-first:hover {
+    border-color: #FFD700;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.highlight-item.prize-second {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), var(--darker-bg));
+    border-color: rgba(192, 192, 192, 0.5);
+}
+
+.highlight-item.prize-second:hover {
+    border-color: #C0C0C0;
+    box-shadow: 0 5px 15px rgba(192, 192, 192, 0.2);
+}
+
+.highlight-icon {
+    font-size: 2.5rem;
+}
+
+.highlight-text h4 {
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}
+
+.highlight-text p {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.highlight-item.prize-first .highlight-text p {
+    color: #FFD700;
+}
+
+.highlight-item.prize-second .highlight-text p {
+    color: #C0C0C0;
+}
+
+.highlight-text p span {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;}
+    /* ===================================
+   RULEBOOK LAYOUT FOR ALL EVENTS
+   =================================== */
+
+.rulebook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.rulebook-heading {
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    font-family: var(--font-heading);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rulebook-list {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    list-style-type: disc;
+    padding-left: 1.2rem;
+}
+
+.rulebook-list li {
+    margin-bottom: 0.7rem;
+    line-height: 1.7;
+}
+
+/* Standalone event image styling */
+.standalone-media {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Better spacing for event names */
+.cod-extended-rules .event-name {
+    margin-bottom: 2rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+    .rulebook-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .standalone-media {
+        width: 100%;
+    }
+
+    .cod-extended-rules {
+        padding: 1.5rem;
+    }
+
+    .cod-extended-rules h3 {
+        font-size: 1.4rem !important;
+    }
+}
+/* ===================================
+   ROBOTICS EVENTS STYLING
+   =================================== */
+
+.robotics-header {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.robotics-title {
+    background: linear-gradient(90deg, #00d4ff, #0099ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.robotics-rulebook {
+    border-top: 4px solid var(--primary-color) !important;
+    border-left: none !important;
+    background: rgba(20, 27, 58, 0.85) !important;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+}
+
+.robotics-event-name {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color) !important;
+}
+
+.robotics-main-title {
+    color: var(--primary-color) !important;
+}
+
+/* Robotics image glow */
+.robotics-rulebook + .event-media img,
+.event-media img {
+    transition: var(--transition);
+}
+
+.event-media:hover img {
+    transform: scale(1.04);
+}
+
+/* Better card spacing */
+.robotics-rulebook .rulebook-list li {
+    margin-bottom: 0.8rem;
+}
+
+/* Extra futuristic glow */
+.robotics-rulebook:hover {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.25);
+    transition: 0.3s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    .robotics-title {
+        font-size: 2.2rem;
+    }
+
+    .robotics-rulebook {
+        padding: 1.5rem;
+    }
+
+    .robotics-event-name {
+        font-size: 2rem;
+    }
+}

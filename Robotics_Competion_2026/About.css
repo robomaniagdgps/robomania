@@ -1,0 +1,454 @@
+:root {
+    --primary-color: #00d4ff;
+    --secondary-color: #0099ff;
+    --accent-color: #ff6b35;
+    --dark-bg: #0a0e27;
+    --darker-bg: #050812;
+    --card-bg: #141b3a;
+    --text-primary: #ffffff;
+    --text-secondary: #b4b4b4;
+    --border-color: #1e2749;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(5, 8, 18, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.school-logo {
+    height: 50px;
+    filter: brightness(0) invert(1);
+}
+
+.logo-main {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.logo-sub {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.page-heading {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: radial-gradient(circle at center, var(--card-bg) 0%, var(--darker-bg) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.heading-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.school-name {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.heading-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* Content Sections */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.introduction-section {
+    background: var(--card-bg);
+    margin: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.intro-label {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
+
+.intro-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin: 0.5rem 0 2rem;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.content-image {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* Objectives */
+.section-title {
+    font-family: var(--font-heading);
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.objectives-card {
+    background: rgba(20, 27, 58, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.objectives-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    list-style: none;
+}
+
+.objective-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--darker-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.objective-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.objective-icon {
+    font-size: 2rem;
+}
+
+/* Competitions - Responsive Auto Grid */
+.competitions-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.competitions-title {
+    font-family: var(--font-heading);
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.competition-card {
+    width: calc(33.333% - 1.34rem);
+    min-width: 300px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.competition-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.competition-image {
+    position: relative;
+    height: 200px;
+}
+
+.competition-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.competition-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 8, 18, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.competition-card:hover .competition-overlay {
+    opacity: 1;
+}
+
+.competition-label {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.competition-content {
+    padding: 1.5rem;
+}
+
+.competition-name {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.competition-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.feature-badge {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* CTA Button - Centered */
+.competitions-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.cta-text {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    background: var(--primary-color);
+    color: var(--darker-bg);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* Guidelines */
+.guidelines-card {
+    background: rgba(20, 27, 58, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.guidelines-list {
+    list-style: none;
+}
+
+.guideline-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    color: var(--text-secondary);
+}
+
+.guideline-icon {
+    font-size: 1.5rem;
+}
+
+/* Organizing Body */
+.organizing-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--darker-bg) 100%);
+    padding: 4rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--primary-color);
+}
+
+.organizing-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.organizing-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.org-subtitle {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.org-description {
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    background: var(--darker-bg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intro-content, 
+    .objectives-list, 
+    .organizing-content {
+        grid-template-columns: 1fr;
+    }
+    .heading-title { 
+        font-size: 2.5rem; 
+    }
+    .competition-card{
+        width:100%;
+    }
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}}
